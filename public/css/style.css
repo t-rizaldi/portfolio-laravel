@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/*-------------------------------
+        Navbar Styles
+-------------------------------*/
+@media screen and (min-width: 992px) {
+  .navbar {
+    height: 80px;
+  }
+  .navbar .nav-item {
+    position: relative;
+  }
+  .navbar .nav-item::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffff00;
+    width: 0;
+    height: 4px;
+    transition: all 0.5s;
+  }
+  .navbar .nav-item:hover::after {
+    width: 100%;
+  }
+  .navbar .nav-link {
+    font-size: 18px;
+    color: #0d6efd;
+  }
+  .navbar .nav-link.active {
+    color: #0d6efd;
+    font-weight: 600;
+    background-color: #ffff00;
+    border-radius: 30px;
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+@media screen and (max-width: 991px) {
+  .navbar .nav-link {
+    font-size: 18px;
+    color: #0d6efd;
+    padding-left: 10px;
+  }
+  .navbar .nav-link.active {
+    color: #ffff00;
+    font-weight: bold;
+    text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+  }
+  .navbar .nav-link:hover {
+    color: #0d6efd;
+    background-color: #ffff00;
+    font-weight: bold;
+  }
+}
+/*-------------------------------
+        Home Styles
+-------------------------------*/
+.banner {
+  margin-top: 120px;
+}
+.banner .banner-description {
+  font-size: 42px;
+  font-weight: 600;
+  color: #211b3d;
+}
+.banner .banner-description-support {
+  font-size: 25px;
+  font-weight: 400;
+  color: #5b5575;
+  margin-top: 20px;
+  line-height: 30px;
+}
+
+.cta p {
+  color: #5b5575;
+  font-weight: 400;
+}
+
+.btn-contact {
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border: none;
+}
+.btn-contact:hover {
+  background-color: #ffff00;
+  color: #000;
+}
+
+.work {
+  margin-top: -60px;
+}
+.work .section-title h2 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffff00;
+}/*# sourceMappingURL=style.css.map */
