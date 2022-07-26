@@ -79,9 +79,31 @@
         <div class="work-line">
             <img src="{{ asset('img/work-line.png') }}" alt="Image" class="img-fluid">
         </div>
-    </section>
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0d6efd" fill-opacity="1" d="M0,288L48,240C96,192,192,96,288,64C384,32,480,64,576,64C672,64,768,32,864,16C960,0,1056,0,1152,26.7C1248,53,1344,107,1392,133.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+    </section>
+    {{-- End Section Work --}}
+
+
+    {{-- Section Mission --}}
+    <section class="mission">
+        <div class="container">
+            <div class="row flex-row-reverse align-items-center">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2>Our Mission</h2>
+                        <p class="mission-description">
+                            Our mission, create a website that strengthens your company’s/personal/industry brand while ensuring ease of use and simplicity for your audience, using latest development tools to create stuning website.
+                        </p>
+                    </div>
+
+                    <a href="#" class="btn btn-contact btn-primary mt-5">Our Service&emsp;<i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ asset('img/mission-img.png') }}" alt="" class="img-fluid mt-lg-0 mt-5">
+                </div>
+            </div>
+        </div>
+    </section>
 
 </main>
 
