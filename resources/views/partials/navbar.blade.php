@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white fixed-top">
+<nav class="navbar navbar-expand-lg bg-transparent fixed-top">
   <div class="container">
     <a class="navbar-brand" href="{{ route('home') }}">
       <img src="{{ asset('img/logo.png') }}" alt="Web Logo" width="100" class="d-inline-block align-text-top">
@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Experience &amp; Education</a>
+          <a class="nav-link" href="{{ route('education') }}">Experience &amp; Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="{{ route('services') }}">Services</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Blog</a>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::controller(HomeController::class)->group(function() {
+    Route::get('/', 'index')->name('home');
+    Route::get('/experience-education', 'education')->name('education');
+});
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+Route::controller(ServiceController::class)->group(function(){
+    Route::get('/services', 'index')->name('services');
+});
