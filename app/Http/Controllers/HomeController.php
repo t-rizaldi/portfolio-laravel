@@ -12,11 +12,20 @@ class HomeController extends Controller
             'title'     => 'Rzal WebDev | Home'
         ];
 
-        return view('frontend.home', $data);
+        return view('home', $data);
     }
 
     public function education()
     {
         return redirect('/document/cv.pdf');
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title'     => 'Rizal WebDev | Contact Us'
+        ];
+
+        return view('contact', $data);
     }
 }

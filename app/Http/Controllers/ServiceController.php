@@ -11,6 +11,6 @@ class ServiceController extends Controller
             'title'     => 'Rizal WebDev | Services'
         ];
 
-        return view('frontend.service', $data);
+        return view('service', $data);
     }
 }
