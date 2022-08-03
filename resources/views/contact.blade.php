@@ -85,9 +85,10 @@
                             <div class="form-group">
                                 <label for="" class="mb-2">Found Rizal WebDev from *</label>
                                 <select name="" id="" class="form-input">
-                                    <option value="company profile">Company Profile</option>
-                                    <option value="personal profile">Personal Profile</option>
-                                    <option value="web application">Web Aplication</option>
+                                    <option value="Community">Community</option>
+                                    <option value="Events">Events</option>
+                                    <option value="Search Engine (Google, DucDuckgo, etc)">Search Engine (Google, DucDuckgo,etc)</option>
+                                    <option value="Social Media (Facebook, Instagram, LinkedIn, etc)">Social Media (Facebook, Instagram, LinkedIn, etc)</option>
                                 </select>
                             </div>
                             <textarea name="" id="" cols="30" rows="5" class="form-input" placeholder="Message *"></textarea>

@@ -26,7 +26,7 @@
 
         <div class="row justify-content-center portfolio-list">
             <div class="col-lg-3 col-md-4">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('portfolio.detail') }}" class="text-decoration-none">
                     <div class="card">
                         <img src="{{ asset('img/logo-prime.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-4">
-                <a href="#" class="text-decoration-none">
+                <a href="{{ route('portfolio.detail') }}" class="text-decoration-none">
                     <div class="card">
                         <img src="{{ asset('img/unimal.png') }}" class="card-img-top" alt="...">
                         <div class="card-body">

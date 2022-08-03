@@ -13,4 +13,12 @@ class PortfolioController extends Controller
 
         return view('portfolio.index', $data);
     }
+    
+    public function detail(){
+        $data = [
+            'title'     => 'Rizal WebDev | Detail Portfolio'
+        ];
+
+        return view('portfolio.detail', $data);
+    }
 }

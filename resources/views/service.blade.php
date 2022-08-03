@@ -26,7 +26,7 @@
             <div class="service-content-detail text-center">
                 <p>Today, your website became one of the main way for you to communicate with your potential customers. Whether you need a corporate website, or whether you are selling your products directly online, we will build an adapted and scalable solution to fit your vision and ambitions.</p>
 
-                <a href="#" class="btn btn-primary btn-contact mx-auto mt-3">Contact Us</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary btn-contact mx-auto mt-3">Contact Us</a>
             </div>
         </div>
     </section>
@@ -56,10 +56,10 @@
                     <div class="service-link text-uppercase">
                         <ul>
                             <li>
-                                <a href="#">Case Studies</a>
+                                <a href="{{ route('portfolio') }}">Case Studies</a>
                             </li>
                             <li>
-                                <a href="#">Get Started</a>
+                                <a href="{{ route('contact') }}">Get Started</a>
                             </li>
                         </ul>
                     </div>
@@ -81,10 +81,10 @@
                     <div class="service-link text-uppercase">
                         <ul>
                             <li>
-                                <a href="#">Case Studies</a>
+                                <a href="{{ route('portfolio') }}">Case Studies</a>
                             </li>
                             <li>
-                                <a href="#">Get Started</a>
+                                <a href="{{ route('contact') }}">Get Started</a>
                             </li>
                         </ul>
                     </div>
@@ -116,10 +116,10 @@
                     <div class="service-link text-uppercase">
                         <ul>
                             <li>
-                                <a href="#">Case Studies</a>
+                                <a href="{{ route('portfolio') }}">Case Studies</a>
                             </li>
                             <li>
-                                <a href="#">Get Started</a>
+                                <a href="{{ route('contact') }}">Get Started</a>
                             </li>
                         </ul>
                     </div>

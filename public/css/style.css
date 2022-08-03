@@ -601,6 +601,29 @@ footer .copyright p span {
   color: #000;
 }
 
+.portfolio-detail {
+  margin-top: 150px;
+  margin-bottom: -200px;
+}
+.portfolio-detail img {
+  max-height: 500px;
+}
+.portfolio-detail .detail-info {
+  margin-top: 50px;
+}
+.portfolio-detail .detail-info .detail-item p {
+  color: #868894;
+  font-size: 14px;
+  text-align: justify;
+}
+.portfolio-detail .detail-info .detail-item table tr th {
+  font-weight: 400;
+}
+.portfolio-detail .detail-info .detail-item table tr td {
+  font-size: 14px;
+  color: #868894;
+}
+
 /*-------------------------------
         Contact Styles
 -------------------------------*/
@@ -695,13 +718,14 @@ footer .copyright p span {
   top: 0;
   right: 0;
 }
-.post .sidebar-post-content {
+
+.sidebar-post-content {
   margin-top: 50px;
 }
-.post .sidebar-post-content .title h3 {
+.sidebar-post-content .title h3 {
   font-weight: 700;
 }
-.post .sidebar-post-content .title h3::before {
+.sidebar-post-content .title h3::before {
   content: "";
   background: #0d6efd;
   width: 5px;
@@ -710,31 +734,143 @@ footer .copyright p span {
   vertical-align: middle;
   margin-right: 10px;
 }
-.post .sidebar-post-content .sidebar-item {
+.sidebar-post-content .sidebar-item {
   display: flex;
   align-items: center;
   align-self: center;
   margin-bottom: 20px;
 }
-.post .sidebar-post-content .sidebar-item .sidebar-img img {
+.sidebar-post-content .sidebar-item .sidebar-img img {
   max-width: 128px;
 }
-.post .sidebar-post-content .sidebar-item .sidebar-info {
+.sidebar-post-content .sidebar-item .sidebar-info {
   margin-left: 15px;
 }
-.post .sidebar-post-content .sidebar-item .sidebar-info a {
+.sidebar-post-content .sidebar-item .sidebar-info a {
   font-size: 18px;
   color: #211b3d;
   font-weight: 500;
   text-decoration: none;
 }
-.post .sidebar-post-content .sidebar-item .sidebar-info p {
+.sidebar-post-content .sidebar-item .sidebar-info p {
   color: #0d6efd;
   margin-top: 10px;
 }
-.post .sidebar-post-content .sidebar-item:hover {
+.sidebar-post-content .sidebar-item:hover {
   box-shadow: 2.5px 4.33px 15px 0 rgba(0, 0, 0, 0.15);
 }
-.post .sidebar-post-content .recent-post {
+.sidebar-post-content .recent-post {
   margin-top: 50px;
+}
+
+.hero-post {
+  position: relative;
+  background-image: url("../img/service-hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+.hero-post .breadcrumb-content h1 {
+  color: #0d6efd;
+  font-size: 30px;
+  font-weight: 900;
+}
+.hero-post .breadcrumb-content ul {
+  padding: 0;
+}
+.hero-post .breadcrumb-content ul li {
+  list-style-type: none;
+  display: inline;
+  color: #0d6efd;
+  font-weight: 900;
+}
+.hero-post .breadcrumb-content ul li a {
+  text-decoration: none;
+}
+.hero-post .breadcrumb-content ul li::after {
+  content: ">";
+  font-weight: 900;
+  margin: 0 10px;
+}
+.hero-post .breadcrumb-content ul li:last-child::after {
+  content: "";
+}
+
+.post-detail {
+  margin-top: 100px;
+  margin-bottom: -200px;
+}
+.post-detail .post-info {
+  margin: 20px 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  align-self: center;
+}
+.post-detail .post-info p {
+  color: #868894;
+}
+.post-detail .post-excerpt {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.post-detail .post-excerpt h2 {
+  font-size: 20px;
+  color: #868894;
+  font-weight: normal;
+}
+.post-detail .post-description {
+  text-align: justify;
+  border-bottom: 1px solid #ccc;
+}
+.post-detail .post-description p {
+  color: #868894;
+}
+.post-detail .form-group {
+  position: relative;
+}
+.post-detail .form-group .form-input {
+  box-shadow: 2.5px 4.33px 15px 0 rgba(0, 0, 0, 0.2);
+}
+.post-detail .form-group .btn-search {
+  border: none;
+  background: linear-gradient(to right, #ffff00 0, #0d6efd 100%);
+  width: 93px;
+  height: 45px;
+  color: #fff;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.post-detail .related-post {
+  margin-top: 50px;
+}
+.post-detail .related-post .title {
+  margin-top: 10px;
+}
+.post-detail .related-post .title h3 {
+  font-weight: 700;
+}
+.post-detail .related-post .card {
+  border: none;
+}
+.post-detail .related-post .card p {
+  font-size: 14px;
+  color: #0d6efd;
+}
+.post-detail .related-post .card a {
+  font-size: 15px;
+  color: #000;
+  line-height: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.post-detail .related-post .card:hover {
+  box-shadow: 2.5px 4.33px 15px 0 rgba(0, 0, 0, 0.2);
+  transition: all ease-out 0.3s;
 }/*# sourceMappingURL=style.css.map */

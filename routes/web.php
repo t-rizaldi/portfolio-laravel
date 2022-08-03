@@ -28,8 +28,10 @@ Route::controller(ServiceController::class)->group(function(){
 
 Route::controller(PortfolioController::class)->group(function() {
     Route::get('/portfolio', 'index')->name('portfolio');
+    Route::get('/portfolio/detail', 'detail')->name('portfolio.detail');
 });
 
 Route::controller(PostController::class)->group(function() {
-    Route::get('blog', 'index')->name('blog');
+    Route::get('/blog', 'index')->name('blog');
+    Route::get('/blog/detail', 'detail')->name('blog.detail');
 });

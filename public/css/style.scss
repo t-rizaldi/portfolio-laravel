@@ -711,6 +711,41 @@ footer {
     }
 }
 
+// Detail Portfolio
+.portfolio-detail {
+    margin-top: 150px;
+    margin-bottom: -200px;
+
+    img {
+        max-height: 500px;
+    }
+
+    .detail-info {
+        margin-top: 50px;
+
+        .detail-item {
+            p {
+                color: #868894;
+                font-size: 14px;
+                text-align: justify;
+            }
+
+            table {
+                tr {
+                    th {
+                        font-weight: 400;
+                    }
+
+                    td {
+                        font-size: 14px;
+                        color: #868894;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /*-------------------------------
         Contact Styles
 -------------------------------*/
@@ -829,61 +864,206 @@ footer {
             right: 0;
         }
     }
+}
 
-    .sidebar-post-content {
-        margin-top: 50px;
+// Sidebar Post Content
+.sidebar-post-content {
+    margin-top: 50px;
 
-        .title {
-            h3 {
-                font-weight: 700;
+    .title {
+        h3 {
+            font-weight: 700;
 
-                &::before {
-                    content: "";
-                    background: #0d6efd;
-                    width: 5px;
-                    height: 30px;
-                    display: inline-block;
-                    vertical-align: middle;
-                    margin-right: 10px;
-                }
+            &::before {
+                content: "";
+                background: #0d6efd;
+                width: 5px;
+                height: 30px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .sidebar-item {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        margin-bottom: 20px;
+
+        .sidebar-img {
+            img {
+                max-width: 128px;
             }
         }
 
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            align-self: center;
-            margin-bottom: 20px;
+        .sidebar-info {
+            margin-left: 15px;
 
-            .sidebar-img {
-                img {
-                    max-width: 128px;
-                }
+            a {
+                font-size: 18px;
+                color: #211b3d;
+                font-weight: 500;
+                text-decoration: none;
             }
 
-            .sidebar-info {
-                margin-left: 15px;
+            p {
+                color: #0d6efd;
+                margin-top: 10px;
+            }
+        }
+
+        &:hover {
+            box-shadow: 2.5px 4.33px 15px 0 rgb(0 0 0 / 15%);
+        }
+    }
+
+    .recent-post {
+        margin-top: 50px;
+    }
+}
+
+// detail post hero
+// Hero Section
+.hero-post {
+    position: relative;
+    background-image: url("../img/service-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+
+    .breadcrumb-content {
+        h1 {
+            color: #0d6efd;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style-type: none;
+                display: inline;
+                color: #0d6efd;
+                font-weight: 900;
 
                 a {
-                    font-size: 18px;
-                    color: #211b3d;
-                    font-weight: 500;
                     text-decoration: none;
                 }
 
-                p {
-                    color: #0d6efd;
-                    margin-top: 10px;
+                &::after {
+                    content: ">";
+                    font-weight: 900;
+                    margin: 0 10px;
+                }
+
+                &:last-child::after {
+                    content: "";
                 }
             }
+        }
+    }
+}
 
-            &:hover {
-                box-shadow: 2.5px 4.33px 15px 0 rgb(0 0 0 / 15%);
+.post-detail {
+    margin-top: 100px;
+    margin-bottom: -200px;
+
+    .post-info {
+        margin: 20px 0;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        align-self: center;
+
+        p {
+            color: #868894;
+        }
+    }
+
+    .post-excerpt {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        h2 {
+            font-size: 20px;
+            color: #868894;
+            font-weight: normal;
+        }
+    }
+
+    .post-description {
+        text-align: justify;
+        border-bottom: 1px solid #ccc;
+
+        p {
+            color: #868894;
+        }
+    }
+
+    .form-group {
+        position: relative;
+        .form-input {
+            box-shadow: 2.5px 4.33px 15px 0 rgb(0 0 0 / 20%);
+        }
+
+        .btn-search {
+            border: none;
+            background: -moz-linear-gradient(to right, #ffff00 0, #0d6efd 100%);
+            background: -webkit-linear-gradient(
+                to right,
+                #ffff00 0,
+                #0d6efd 100%
+            );
+            background: -o-linear-gradient(to right, #ffff00 0, #0d6efd 100%);
+            background: linear-gradient(to right, #ffff00 0, #0d6efd 100%);
+            width: 93px;
+            height: 45px;
+            color: #fff;
+            border-radius: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    .related-post {
+        margin-top: 50px;
+
+        .title {
+            margin-top: 10px;
+
+            h3 {
+                font-weight: 700;
             }
         }
 
-        .recent-post {
-            margin-top: 50px;
+        .card {
+            border: none;
+
+            p {
+                font-size: 14px;
+                color: #0d6efd;
+            }
+
+            a {
+                font-size: 15px;
+                color: #000;
+                line-height: 20px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            &:hover {
+                box-shadow: 2.5px 4.33px 15px 0 rgb(0 0 0 / 20%);
+                transition: all ease-out 0.3s;
+            }
         }
     }
 }

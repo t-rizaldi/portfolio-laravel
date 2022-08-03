@@ -18,7 +18,7 @@
                     </p>
     
                     <div class="cta text-lg-start text-center">
-                        <a href="#" class="btn btn-contact btn-primary">Contact Us</a>
+                        <a href="{{ route('contact') }}" class="btn btn-contact btn-primary">Contact Us</a>
                         <p>*Build your project with us today!</p>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </p>
                     </div>
 
-                    <a href="#" class="btn btn-contact btn-primary mt-5">Our Service&emsp;<i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('services') }}" class="btn btn-contact btn-primary mt-5">Our Service&emsp;<i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="col-lg-6">
                     <img src="{{ asset('img/mission-img.png') }}" alt="" class="img-fluid mt-lg-0 mt-5">
