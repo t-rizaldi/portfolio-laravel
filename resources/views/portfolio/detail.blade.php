@@ -5,7 +5,7 @@
     <section class="hero-portfolio">
         <div class="container">
             <div class="breadcrumb-content text-uppercase">
-                <h1>PT PIM Prima Medika</h1>
+                <h1>{{ $portfolio->title }}</h1>
                 <ul>
                     <li>
                         <a href="{{ route('home') }}">Home</a>
@@ -13,7 +13,7 @@
                     <li>
                         <a href="{{ route('portfolio') }}">Portfolio</a>
                     </li>
-                    <li>PT PIM Prima Medika</li>
+                    <li>{{ $portfolio->title }}</li>
                 </ul>
             </div>
         </div>
@@ -25,14 +25,18 @@
         <div class="container">
             <div class="col-lg-10 mx-auto">
                 <div class="detail-img d-flex justify-content-center">
-                    <img src="{{ asset('img/logo-prime.png') }}" alt="" class="img-fluid">
+                    @if (!empty($portfolio->gambar))
+                        <img src="{{ asset('storage/'.$portfolio->gambar) }}" alt="" class="img-fluid">                     
+                    @else
+                        <img src="{{ asset('storage/img_portfolio/default.jpg') }}" alt="" class="img-fluid">                        
+                    @endif
                 </div>
 
                 <div class="row detail-info">
                     <div class="col-lg-6 justify-content-center">
                         <div class="detail-item">
                             <h4>Project Description</h4>
-                            <p>The Ministry of Finance of the Republic of Indonesia is the state ministry within the Government of Indonesia in charge of financial affairs and state assets. The publication division needed a new online platform where the public can get credible information related to The Ministry of Finance. We offered a dynamic, SEO-friendly CMS for the government officials use.</p>
+                            <p>{{ $portfolio->description }}</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -42,22 +46,22 @@
                                 <tr>
                                     <th>Client Name</th>
                                     <th>&ensp;:&ensp;</th>
-                                    <td>PT. PIM Prima Medika</td>
+                                    <td>{{ $portfolio->client }}</td>
                                 </tr>
                                 <tr>
                                     <th>Website</th>
                                     <th>&ensp;:&ensp;</th>
-                                    <td><a href="https://api.simpeg.prime.id" class="text-decoration-none">https://api.simpeg.prime.id</a></td>
+                                    <td><a href="{{ $portfolio->website }}" class="text-decoration-none">{{ $portfolio->website }}</a></td>
                                 </tr>
                                 <tr>
                                     <th>Project Date</th>
                                     <th>&ensp;:&ensp;</th>
-                                    <td>April 2022</td>
+                                    <td>{{ date('F Y', strtotime($portfolio->project_date)) }}</td>
                                 </tr>
                                 <tr>
                                     <th>Status</th>
                                     <th>&ensp;:&ensp;</th>
-                                    <td>Complete</td>
+                                    <td>{{ $portfolio->status }}</td>
                                 </tr>
                             </table>
                         </div>

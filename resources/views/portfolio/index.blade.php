@@ -25,26 +25,22 @@
         </div>
 
         <div class="row justify-content-center portfolio-list">
+            @foreach ($portfolios as $portfolio)
             <div class="col-lg-3 col-md-4">
-                <a href="{{ route('portfolio.detail') }}" class="text-decoration-none">
+                <a href="{{ route('portfolio.detail', $portfolio->slug) }}" class="text-decoration-none">
                     <div class="card">
-                        <img src="{{ asset('img/logo-prime.png') }}" class="card-img-top" alt="...">
+                        @if (!empty($portfolio->gambar))
+                            <img src="{{ asset('storage/'.$portfolio->gambar) }}" class="card-img-top" alt="..." style="max-height: 300px;">                            
+                        @else                            
+                            <img src="{{ asset('storage/img_portfolio/default.jpg') }}" class="card-img-top" alt="...">
+                        @endif
                         <div class="card-body">
-                          <h5 class="card-title text-center">PT. PIM Prima Medika</h5>
+                          <h5 class="card-title text-center">{{ $portfolio->title }}</h5>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3 col-md-4">
-                <a href="{{ route('portfolio.detail') }}" class="text-decoration-none">
-                    <div class="card">
-                        <img src="{{ asset('img/unimal.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title text-center">Universitas Malikussaleh</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
