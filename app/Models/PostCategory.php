@@ -6,15 +6,15 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class PostCategory extends Model
 {
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
 
-    public function category()
+    public function post()
     {
-        return $this->belongsTo(PostCategory::class, 'category_id');
+        return $this->hasMany(Post::class);
     }
 
     public function sluggable(): array

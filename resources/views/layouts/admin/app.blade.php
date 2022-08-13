@@ -19,6 +19,8 @@
 		************ -->
 		<!-- Bootstrap css -->
 		<link rel="stylesheet" href="{{ asset('template/css/bootstrap.min.css') }}">
+		{{-- Fontawesome Icon CSS --}}
+    <link rel="stylesheet" href="{{ asset('libraries/fontawesome/css/all.css') }}">
 		<!-- Icomoon Font Icons css -->
 		<link rel="stylesheet" href="{{ asset('template/fonts/style.css') }}">
 		<!-- Main css -->
@@ -38,6 +40,12 @@
 
 		<!-- Notify -->
 		<link rel="stylesheet" href="{{ asset('template/vendor/notify/notify-flat.css') }}" />
+
+		<!-- Summernote CSS -->
+		<link rel="stylesheet" href="{{ asset('template/vendor/summernote/summernote-bs4.css') }}" />
+
+		{{-- Custom CSS --}}
+		<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
 
 	</head>
@@ -91,6 +99,8 @@
 		<!-- *************
 			************ Vendor Js Files *************
 		************* -->
+		{{-- Fontawesome Icons JS --}}
+		<script src="{{ asset('libraries/fontawesome/js/all.js') }}"></script>
 		<!-- Slimscroll JS -->
 		<script src="{{ asset('template/vendor/slimscroll/slimscroll.min.js') }}"></script>
 		<script src="{{ asset('template/vendor/slimscroll/custom-scrollbar.js') }}"></script>
@@ -121,6 +131,9 @@
 		<script src="{{ asset('template/js/jquery.easing.1.3.js') }}"></script>
 		<script src="{{ asset('template/vendor/notify/notify.js') }}"></script>
 		<script src="{{ asset('template/vendor/notify/notify-custom.js') }}"></script>
+
+		<!-- Summernote JS -->
+		<script src="{{ asset('template/vendor/summernote/summernote-bs4.js') }}"></script>
 
 		<!-- Main JS -->
 		<script src="{{ asset('template/js/main.js') }}"></script>

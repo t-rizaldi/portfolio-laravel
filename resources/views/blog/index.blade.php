@@ -5,12 +5,25 @@
     <section class="hero-service">
         <div class="container">
             <div class="breadcrumb-content text-uppercase">
-                <h1>Blog</h1>
+                @if (!$search)
+                    <h1>Blog</h1>
+                @else
+                    <h1>Search: {{ $search }}</h1>
+                @endif
+                
                 <ul>
                     <li>
                         <a href="{{ route('home') }}">Home</a>
                     </li>
-                    <li>Blog</li>
+                    @if (!$search)
+                        <li>Blog</li>
+                    @else
+                    <li>
+                        <a href="{{ route('blog') }}">Blog</a>
+                    </li>
+                    <li>Search</li>
+                    <li>{{ $search }}</li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -22,177 +35,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="post-content">
-                        <div class="post-item">
-                            <div class="post-img">
-                                <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="post-info">
-                                <p class="post-date"><span class="text-primary"><i class="fas fa-clock"></i></span>&emsp;1 Aug, 2022</p>
-                                <p class="post-writer ms-5"><span class="text-primary"><i class="fas fa-user"></i></span>&emsp;Rizaldi</p>
-                            </div>
-                            <div class="post-title">
-                                <a href="{{ route('blog.detail') }}">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                            </div>
-                            <div class="post-excerpt">
-                                <p>Performa pagespeed website Anda akan berpengaruh kepada pengalaman pengguna, sehingga perlu memperhatikan beberapa hal ini untuk optimasi website bisnis Anda website bisnis Anda</p>
-                            </div>
+                    @foreach ($posts as $post)
+                        <div class="post-content">
+                            <div class="post-item">
+                                <div class="post-img">
+                                    @if (!empty($post->image))
+                                        <img src="{{ asset('storage/'.$post->image) }}" alt="" class="img-fluid">                                        
+                                    @else
+                                        <img src="{{ asset('storage/img_post/default.jpg') }}" alt="" class="img-fluid">                                        
+                                    @endif
+                                </div>
+                                <div class="post-info">
+                                    <p class="post-date"><span class="text-primary"><i class="fas fa-clock"></i></span>&emsp;{{ date('M d, Y', strtotime($post->created_at)) }}</p>
+                                    <p class="post-writer ms-5"><span class="text-primary"><i class="fas fa-user"></i></span>&emsp;Rizaldi</p>
+                                </div>
+                                <div class="post-title">
+                                    <a href="{{ route('blog.detail', $post->slug) }}">{{  $post->title }}</a>
+                                </div>
+                                <div class="post-excerpt">
+                                    <p>{{ $post->excerpt }}</p>
+                                </div>
 
-                            <a href="{{ route('blog.detail') }}" class="post-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
+                                <a href="{{ route('blog.detail', $post->slug) }}" class="post-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-item">
-                            <div class="post-img">
-                                <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="post-info">
-                                <p class="post-date"><span class="text-primary"><i class="fas fa-clock"></i></span>&emsp;1 Aug, 2022</p>
-                                <p class="post-writer ms-5"><span class="text-primary"><i class="fas fa-user"></i></span>&emsp;Rizaldi</p>
-                            </div>
-                            <div class="post-title">
-                                <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                            </div>
-                            <div class="post-excerpt">
-                                <p>Performa pagespeed website Anda akan berpengaruh kepada pengalaman pengguna, sehingga perlu memperhatikan beberapa hal ini untuk optimasi website bisnis Anda website bisnis Anda</p>
-                            </div>
+                    @endforeach
 
-                            <a href="#" class="post-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-item">
-                            <div class="post-img">
-                                <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                            </div>
-                            <div class="post-info">
-                                <p class="post-date"><span class="text-primary"><i class="fas fa-clock"></i></span>&emsp;1 Aug, 2022</p>
-                                <p class="post-writer ms-5"><span class="text-primary"><i class="fas fa-user"></i></span>&emsp;Rizaldi</p>
-                            </div>
-                            <div class="post-title">
-                                <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                            </div>
-                            <div class="post-excerpt">
-                                <p>Performa pagespeed website Anda akan berpengaruh kepada pengalaman pengguna, sehingga perlu memperhatikan beberapa hal ini untuk optimasi website bisnis Anda website bisnis Anda</p>
-                            </div>
-
-                            <a href="#" class="post-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
-                        </div>
-                    </div>
+                    {{ $posts->links() }}
+                    
                 </div>
-                <div class="col-lg-4">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Search" required>
-                            <button type="submit" class="btn-search"><i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </form>
 
-                    <div class="sidebar-post-content">
-                        {{-- Popular Content--}}
-                        <div class="popular-post">
-                            <div class="title">
-                                <h3>Popular Post</h3>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- Recent Content--}}
-                        <div class="recent-post">
-                            <div class="title">
-                                <h3>Recent Post</h3>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                            <div class="sidebar-item">
-                                <div class="sidebar-img">
-                                    <img src="{{ asset('img/blog-img.png') }}" alt="" class="img-fluid">
-                                </div>
-                                <div class="sidebar-info">
-                                    <a href="#">Hal yang Mempengaruhi Pagespeed Sebuah Website</a>
-                                    <p>1 August, 2022</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('blog.sidebar')
+
             </div>
         </div>
 

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\PostCategory;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -15,7 +18,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'title'     => 'Rizal WebDev | Admin Blog',
+            'posts'     => Post::with(['category'])->get()
+        ];
+
+        return view('admin.blog.index', $data);
     }
 
     /**
@@ -25,7 +33,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title'         => 'Rizal WebDev | Admin Create Post',
+            'categories'    => PostCategory::all()
+        ];
+
+        return view('admin.blog.create', $data);
     }
 
     /**
@@ -36,7 +49,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title'         => 'required',
+            'slug'          => 'required|unique:posts,slug',
+            'category_id'   => 'required|numeric',
+            'excerpt'       => 'required',
+            'body'          => 'required',
+            'image'         => 'image|file|max:2048'
+        ]);
+
+        $validatedData['view'] = 0;
+        $validatedData['user_id'] = 1;
+
+        if($request->file('image')) {
+            $image = $request->file('image')->store('img_post');
+            $validatedData['image'] = $image;
+        }
+
+        Post::create($validatedData);
+
+        return to_route('admin.post.index')->with('success', 'New post has been added!');
     }
 
     /**
@@ -47,7 +79,12 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $data = [
+            'title'     => $post->title,
+            'post'      => $post
+        ];
+
+        return view('admin.blog.detail', $data);
     }
 
     /**
@@ -58,7 +95,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $data = [
+            'title'         => 'Rizal WebDev | Admin Edit Post',
+            'post'          => $post,
+            'categories'    => PostCategory::all()
+        ];
+
+        return view('admin.blog.edit', $data);
     }
 
     /**
@@ -70,7 +113,41 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'title'         => 'required',
+            'slug'          => 'required',
+            'category_id'   => 'required|numeric',
+            'excerpt'       => 'required',
+            'body'          => 'required',
+            'image'         => 'image|file|max:2048'
+        ];
+
+        // cek apakah judul berubah
+        if($post->title != $request->title) {
+            // kalau berubah set validatsi slug
+             $rules['slug'] = 'required|unique:posts,slug';
+        }
+
+        //validasi data
+        $validatedData = $request->validate($rules);
+
+        $validatedData['view'] = $post->view;
+        $validatedData['user_id'] = $post->user_id;
+
+        if($request->file('image')) {
+            $image = $request->file('image')->store('img_post');
+            $validatedData['image'] = $image;
+
+            if(!empty($post->image)) {
+                Storage::delete($post->image);
+            }
+        } else {
+            $validatedData['image'] = $request->oldImage;
+        }
+
+        Post::where('slug', $post->slug)->update($validatedData);
+
+        return to_route('admin.post.index')->with('success', 'Post has been updated!');
     }
 
     /**
@@ -81,6 +158,17 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if(!empty($post->image)) {
+            Storage::delete( $post->image);
+        }
+
+        Post::where('slug', $post->slug)->delete();
+        return to_route('admin.post.index')->with('success', 'Post has been deleted!');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

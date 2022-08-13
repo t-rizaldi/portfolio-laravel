@@ -28,6 +28,22 @@
                         <span class="menu-text">Portfolio</span>
                     </a>
                 </li>
+                <li class="sidebar-dropdown {{ Request::routeIs('admin.post*') ? 'active' : '' }}">
+                    <a href="#">
+                        <i class="icon-book-open"></i>
+                        <span class="menu-text">Blog</span>
+                    </a>
+                    <div class="sidebar-submenu">
+                        <ul>
+                            <li>
+                                <a href="{{ route('admin.post.index') }}">Blog</a>
+                            </li>
+                            <li class="{{ Request::routeIs('admin.post.category*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.post.category') }}">Category</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end -->

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
+use App\Http\Controllers\Admin\PostCategoryController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\PostController;
@@ -35,13 +37,14 @@ Route::controller(PortfolioController::class)->group(function() {
 
 Route::controller(PostController::class)->group(function() {
     Route::get('/blog', 'index')->name('blog');
-    Route::get('/blog/detail', 'detail')->name('blog.detail');
+    Route::post('/blog/search', 'search')->name('blog.search');
+    Route::get('/blog/detail/{post:slug}', 'detail')->name('blog.detail');
 });
 
 
 // Admin Routes
 Route::controller(DashboardController::class)->group(function() {
-    Route::get('dashboard', 'index')->name('admin');
+    Route::get('/dashboard', 'index')->name('admin');
 });
 
 // Portfolio and post admin
@@ -51,5 +54,18 @@ Route::prefix('admin')->group(function(){
         // portfolio
         Route::get('/portfolio/check-slug', [AdminPortfolioController::class, 'checkSlug']);
         Route::resource('portfolio',AdminPortfolioController::class)->parameters(['portfolio' => 'portfolio:slug']);
+
+        // Post Categories Routes
+        Route::controller(PostCategoryController::class)->group(function() {
+            Route::get('/post/category', 'index')->name('post.category');
+            Route::get('/post/category/check-slug', 'checkSlug')->name('post.category.checkslug');
+            Route::post('/post/category/store', 'store')->name('post.category.store');
+            Route::put('/post/category/update', 'update')->name('post.category.update');
+            Route::delete('/post/category/destroy/{postCategory:slug}', 'destroy')->name('post.category.destroy');
+        });
+
+        // posts
+        Route::get('/post/check-slug', [AdminPostController::class, 'checkSlug']);
+        Route::resource('post', AdminPostController::class)->parameters(['post' => 'post:slug']);
     });
 });

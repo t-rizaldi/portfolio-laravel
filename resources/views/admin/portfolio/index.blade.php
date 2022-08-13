@@ -18,7 +18,7 @@
                 <div class="table-container">
                     <div class="t-header bg-primary text-light">
                         Portfolio List
-                        <a href="{{ route('admin.portfolio.create') }}" class="btn btn-info ml-4"><i class="icon-plus"></i> Tambah</a>
+                        <a href="{{ route('admin.portfolio.create') }}" class="btn btn-info ml-4"><i class="icon-plus"></i> Create</a>
                     </div>
                     <div class="table-responsive">
                         <table id="basicExample" class="table custom-table">
@@ -45,7 +45,7 @@
                                         <form action="{{ route('admin.portfolio.destroy', $portfolio->slug) }}" method="post" class="d-inline" onsubmit="return confirm('Apakah anda yakin ingin menghapus portfolio {{ str($portfolio->title)->lower() }} ini ?')">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-rounded"><i class="icon-edit1"></i></button>
+                                            <button type="submit" class="btn btn-danger btn-rounded"><i class="icon-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

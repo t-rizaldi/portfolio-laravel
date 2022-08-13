@@ -20,7 +20,7 @@ class PortfolioController extends Controller
     public function detail(Portfolio $portfolio)
     {
         $data = [
-            'title'     => 'Rizal WebDev | Detail Portfolio',
+            'title'     => "Rizal WebDev | $portfolio->title",
             'portfolio' => $portfolio
         ];
 
