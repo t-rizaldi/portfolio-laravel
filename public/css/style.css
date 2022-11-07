@@ -915,4 +915,26 @@ footer .copyright p span {
   color: #fff;
   font-weight: 500;
   background: linear-gradient(to right, #ffff00 0, #0d6efd 100%);
+}
+
+.password-form {
+  position: relative;
+}
+.password-form .show-hide {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.password-form .show-hide i {
+  font-size: 19px;
+  color: #3e0d0d;
+  cursor: pointer;
+  display: none;
+}
+.password-form .show-hide i.hide::before {
+  content: "\f070";
+}
+.password-form input:valid ~ .show-hide i {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

@@ -64,7 +64,7 @@ class PortfolioController extends Controller
         }
 
         Portfolio::create($validatedData);
-        return to_route('admin.portfolio.index')->with('success', 'new portfolio has been added!');
+        return to_route('admin.portfolio.index')->with('toast_success', 'new portfolio has been added!');
 
     }
 
@@ -143,7 +143,7 @@ class PortfolioController extends Controller
         }
 
         Portfolio::where('slug', $portfolio->slug)->update($validatedData);
-        return to_route('admin.portfolio.index')->with('success', 'Portfolio has been updated!');
+        return to_route('admin.portfolio.index')->with('toast_success', 'Portfolio has been updated!');
     }
 
     /**
@@ -161,7 +161,7 @@ class PortfolioController extends Controller
             Storage::delete($portfolio->gambar);
         }
 
-        return to_route('admin.portfolio.index')->with('success', 'Portfolio has been deleted!');
+        return to_route('admin.portfolio.index')->with('toast_success', 'Portfolio has been deleted!');
     }
 
     public function checkSlug(Request $request)

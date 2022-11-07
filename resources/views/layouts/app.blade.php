@@ -24,6 +24,10 @@
     @yield('content')
 
    @include('partials.footer')
+
+   {{-- Sweet Alert --}}
+   @include('sweetalert::alert')
+   
     {{-- Vendor Script --}}
     <script src="{{ asset('libraries/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('libraries/fontawesome/js/all.js') }}"></script>

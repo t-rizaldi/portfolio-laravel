@@ -67,31 +67,32 @@
                     <p>Leave us your details and we will get back to you as soon as possible.</p>
                 </div>
 
-                <form action="#" method="post">
+                <form action="{{ route('contact.message') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" class="form-input" placeholder="Full Name *">
-                            <input type="text" class="form-input" placeholder="Subject *">
+                            <input type="text" name="name" id="name" class="form-input" placeholder="Full Name *" value="{{ old('name') }}">
+                            <input type="text" name="subject" id="subject" class="form-input" placeholder="Subject *" value="{{ old('subject') }}">
 
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" class="form-input" placeholder="Email Address *">
-                            <input type="text" class="form-input" placeholder="Phone No *">
+                            <input type="email" name="email" id="email" class="form-input" placeholder="Email Address *" value="{{ old('email') }}">
+                            <input type="number" name="phone" id="phone" class="form-input" placeholder="Phone No *" value="{{ old('phone') }}">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="" class="mb-2">Found Rizal WebDev from *</label>
-                                <select name="" id="" class="form-input">
-                                    <option value="Community">Community</option>
-                                    <option value="Events">Events</option>
-                                    <option value="Search Engine (Google, DucDuckgo, etc)">Search Engine (Google, DucDuckgo,etc)</option>
-                                    <option value="Social Media (Facebook, Instagram, LinkedIn, etc)">Social Media (Facebook, Instagram, LinkedIn, etc)</option>
+                                <label for="found" class="mb-2">Found Rizal WebDev from *</label>
+                                <select name="found" id="found" class="form-input">
+                                    <option value="Community" @selected(old('found') == 'Community')>Community</option>
+                                    <option value="Events" @selected(old('found') == 'Events')>Events</option>
+                                    <option value="Search Engine (Google, DucDuckgo, etc)" @selected(old('found') == 'Search Engine (Google, DucDuckgo, etc)')>Search Engine (Google, DucDuckgo,etc)</option>
+                                    <option value="Social Media (Facebook, Instagram, LinkedIn, etc)" @selected(old('found') == 'Social Media (Facebook, Instagram, LinkedIn, etc)')>Social Media (Facebook, Instagram, LinkedIn, etc)</option>
                                 </select>
                             </div>
-                            <textarea name="" id="" cols="30" rows="5" class="form-input" placeholder="Message *"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="5" class="form-input" placeholder="Message *">{{ old('message') }}</textarea>
                         </div>
                     </div>
 

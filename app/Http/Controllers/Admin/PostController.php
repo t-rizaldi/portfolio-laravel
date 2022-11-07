@@ -68,7 +68,7 @@ class PostController extends Controller
 
         Post::create($validatedData);
 
-        return to_route('admin.post.index')->with('success', 'New post has been added!');
+        return to_route('admin.post.index')->with('toast_success', 'New post has been added!');
     }
 
     /**
@@ -147,7 +147,7 @@ class PostController extends Controller
 
         Post::where('slug', $post->slug)->update($validatedData);
 
-        return to_route('admin.post.index')->with('success', 'Post has been updated!');
+        return to_route('admin.post.index')->with('toast_success', 'Post has been updated!');
     }
 
     /**
@@ -163,7 +163,7 @@ class PostController extends Controller
         }
 
         Post::where('slug', $post->slug)->delete();
-        return to_route('admin.post.index')->with('success', 'Post has been deleted!');
+        return to_route('admin.post.index')->with('toast_success', 'Post has been deleted!');
     }
 
     public function checkSlug(Request $request)

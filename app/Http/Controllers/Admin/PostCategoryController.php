@@ -27,7 +27,7 @@ class PostCategoryController extends Controller
         ]);
 
         PostCategory::create($validatedData);
-        return to_route('admin.post.category')->with('success', 'New category has been added!');
+        return to_route('admin.post.category')->with('toast_success', 'New category has been added!');
     }
 
     public function update(Request $request)
@@ -38,13 +38,13 @@ class PostCategoryController extends Controller
         ]);
 
         PostCategory::where('slug', $request->slugLama)->update($validatedData);
-        return to_route('admin.post.category')->with('success', 'Category has been updated!');
+        return to_route('admin.post.category')->with('toast_success', 'Category has been updated!');
     }
 
     public function destroy(PostCategory $postCategory)
     {
         PostCategory::where('slug', $postCategory->slug)->delete();
-        return to_route('admin.post.category')->with('success', 'Category has been deleted!');
+        return to_route('admin.post.category')->with('toast_success', 'Category has been deleted!');
     }
 
     public function checkSlug(Request $request)

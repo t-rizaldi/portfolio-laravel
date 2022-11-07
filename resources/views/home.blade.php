@@ -116,63 +116,31 @@
             </div>
 
             <div class="row justify-content-center mt-3">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item mt-3">
-                        <div class="card">
-                            <div class="card-blog-img">
-                                <img src="{{ asset('img/img-blog.png') }}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-blog-header d-flex my-2">
-                                    <p class="blog-writer"><span class="text-primary"><i class="far fa-user"></i></span>&emsp;By Rizaldi</p>
-                                    <p class="ms-auto blog-date"><span class="text-primary"><i class="far fa-calendar"></i></span>&emsp;Jul 26, 2022</p>
+                @foreach ($posts as $post)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-item mt-3">
+                            <div class="card">
+                                <div class="card-blog-img">
+                                    @if (!empty($post->image))
+                                        <img src="{{ asset('storage/'.$post->image) }}" class="card-img-top" alt="Post Image">
+                                    @else
+                                        <img src="{{ asset('storage/img_post/default.jpg') }}" class="card-img-top" alt="Post Image Default">
+                                    @endif
                                 </div>
-                                <a href="#" class="card-title">Seberapa Penting SEO dalam Bisnis Digital?</a>
-                                <p class="card-text">Search Engine Optimization atau yang lebih dikenal dengan SEO merupakan elemen yang cukup penting dalam bisnis digital. Keberadaan SEO mampu memberikan visibilitas dalam menarik pelanggan di era kemajuan digital seperti sekarang.</p>
+                                <div class="card-body">
+                                    <div class="card-blog-header d-flex my-2">
+                                        <p class="blog-writer"><span class="text-primary"><i class="far fa-user"></i></span>&emsp;By Rizaldi</p>
+                                        <p class="ms-auto blog-date"><span class="text-primary"><i class="far fa-calendar"></i></span>&emsp;{{ date('M d, Y', strtotime($post->created_at)) }}</p>
+                                    </div>
+                                    <a href="{{ route('blog.detail', $post->slug) }}" class="card-title">{{ $post->title }}</a>
+                                    <p class="card-text">{{ $post->excerpt }}</p>
 
-                                <a href="#" class="text-decoration-none blog-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
+                                    <a href="{{ route('blog.detail', $post->slug) }}" class="text-decoration-none blog-read-more"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item mt-3">
-                        <div class="card">
-                            <div class="card-blog-img">
-                                <img src="{{ asset('img/img-blog.png') }}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-blog-header d-flex my-2">
-                                    <p><span class="text-primary"><i class="far fa-user"></i></span>&emsp;By Rizaldi</p>
-                                    <p class="ms-auto"><span class="text-primary"><i class="far fa-calendar"></i></span>&emsp;Jul 26, 2022</p>
-                                </div>
-                                <a href="#" class="card-title">Seberapa Penting SEO dalam Bisnis Digital?</a>
-                                <p class="card-text">Search Engine Optimization atau yang lebih dikenal dengan SEO merupakan elemen yang cukup penting dalam bisnis digital. Keberadaan SEO mampu memberikan visibilitas dalam menarik pelanggan di era kemajuan digital seperti sekarang.</p>
-
-                                <a href="#" class="text-decoration-none text-dark"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item mt-3">
-                        <div class="card">
-                            <div class="card-blog-img">
-                                <img src="{{ asset('img/img-blog.png') }}" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <div class="card-blog-header d-flex my-2">
-                                    <p><span class="text-primary"><i class="far fa-user"></i></span>&emsp;By Rizaldi</p>
-                                    <p class="ms-auto"><span class="text-primary"><i class="far fa-calendar"></i></span>&emsp;Jul 26, 2022</p>
-                                </div>
-                                <a href="#" class="card-title">Seberapa Penting SEO dalam Bisnis Digital?</a>
-                                <p class="card-text">Search Engine Optimization atau yang lebih dikenal dengan SEO merupakan elemen yang cukup penting dalam bisnis digital. Keberadaan SEO mampu memberikan visibilitas dalam menarik pelanggan di era kemajuan digital seperti sekarang.</p>
-
-                                <a href="#" class="text-decoration-none text-dark"><span class="text-primary"><i class="fas fa-play"></i></span>&emsp;Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

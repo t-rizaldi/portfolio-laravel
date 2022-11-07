@@ -44,6 +44,18 @@
                         </ul>
                     </div>
                 </li>
+                <li class="{{ Request::routeIs('admin.user*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.index') }}">
+                        <i class="icon-user"></i>
+                        <span class="menu-text">User</span>
+                    </a>
+                </li>
+                <li class="{{ Request::routeIs('admin.message*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.message.index') }}">
+                        <i class="icon-mail"></i>
+                        <span class="menu-text">Message</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- sidebar menu end -->

@@ -8,51 +8,9 @@
         </a>
     </div>
     <div class="header-items">
-        <!-- Custom search start -->
-        <div class="custom-search">
-            <input type="text" class="search-query" placeholder="Search here ...">
-            <i class="icon-search1"></i>
-        </div>
-        <!-- Custom search end -->
 
         <!-- Header actions start -->
         <ul class="header-actions">
-            <li class="dropdown">
-                <a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
-                    <i class="icon-box"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
-                    <div class="dropdown-menu-header">
-                        Tasks (05)
-                    </div>	
-                    <ul class="header-tasks">
-                        <li>
-                            <p>#20 - Dashboard UI<span>90%</span></p>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                                    <span class="sr-only">90% Complete (success)</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>#35 - Alignment Fix<span>60%</span></p>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                    <span class="sr-only">60% Complete (success)</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>#50 - Broken Button<span>40%</span></p>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
             <li class="dropdown">
                 <a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
                     <i class="icon-bell"></i>
@@ -104,24 +62,32 @@
             </li>
             <li class="dropdown">
                 <a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-                    <span class="user-name">Julie Sweet</span>
+                    <span class="user-name">{{ auth()->user()->name }}</span>
                     <span class="avatar">
-                        <img src="{{ asset('template/img/user24.png') }}" alt="avatar">
-                        <span class="status busy"></span>
+                        @if (!empty(auth()->user()->avatar))
+                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                        @else
+                            <img src="{{ asset('storage/img_user/default.png') }}" alt="avatar">
+                        @endif
+                        {{-- <span class="status busy"></span> --}}
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userSettings">
                     <div class="header-profile-actions">
                         <div class="header-user-profile">
                             <div class="header-user">
-                                <img src="{{ asset('template/img/user24.png') }}" alt="Admin Template">
+                                @if (!empty(auth()->user()->avatar))
+                                    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar">
+                                @else
+                                    <img src="{{ asset('storage/img_user/default.png') }}" alt="avatar">
+                                @endif
                             </div>
-                            <h5>Julie Sweet</h5>
-                            <p>Admin</p>
+                            <h5>{{ auth()->user()->name }}</h5>
+                            <p>{{ auth()->user()->role_id == 1 ? 'Super Admin' : 'Admin' }}</p>
                         </div>
-                        <a href="user-profile.html"><i class="icon-user1"></i> My Profile</a>
-                        <a href="account-settings.html"><i class="icon-settings1"></i> Account Settings</a>
-                        <a href="login.html"><i class="icon-log-out1"></i> Sign Out</a>
+                        <a href="#"><i class="icon-user1"></i> My Profile</a>
+                        <a href="#"><i class="icon-settings1"></i> Account Settings</a>
+                        <a href="{{ route('auth.logout') }}" onclick="return confirm('Anda yakin ingin keluar ?')"><i class="icon-log-out1"></i> Sign Out</a>
                     </div>
                 </div>
             </li>

@@ -1138,3 +1138,30 @@ footer {
         }
     }
 }
+
+// Login style
+.password-form {
+    position: relative;
+
+    .show-hide {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .show-hide i {
+        font-size: 19px;
+        color: #3e0d0d;
+        cursor: pointer;
+        display: none;
+    }
+
+    .show-hide i.hide::before {
+        content: "\f070";
+    }
+
+    input:valid ~ .show-hide i {
+        display: block;
+    }
+}

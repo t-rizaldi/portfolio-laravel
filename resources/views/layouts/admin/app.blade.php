@@ -77,6 +77,9 @@
 
 				@yield('content')
 
+				{{-- Sweet Alert --}}
+				@include('sweetalert::alert')
+
 			</div>
 			<!-- Page content end -->
 

@@ -144,31 +144,57 @@
                     <p>Leave us your details and we will get back to you as soon as possible.</p>
                 </div>
 
-                <form action="#" method="post">
+                <form action="{{ route('contact.message.project') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" class="form-input" placeholder="Full Name *">
+                            <input type="text" name="name" id="name" class="form-input @error('name') is-invalid @enderror" placeholder="Full Name *" value="{{ old('name') }}" required>
+                            @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
-                            <select name="" id="" class="form-input">
+                            <select name="service" id="service" class="form-input @error('service') is-invalid @enderror" required>
                                 <option value="">Services *</option>
-                                <option value="company profile">Company Profile</option>
-                                <option value="personal profile">Personal Profile</option>
-                                <option value="web application">Web Aplication</option>
+                                <option value="Company Profile" @selected(old('service') == 'Company Profile')>Company Profile</option>
+                                <option value="Personal Profile" @selected(old('service') == 'Personal Profile')>Personal Profile</option>
+                                <option value="Web Application" @selected(old('service') == 'Web Application')>Web Aplication</option>
                             </select>
+                            @error('service')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="col-lg-6">
-                            <input type="text" class="form-input" placeholder="Email Address *">
-                            <input type="text" class="form-input" placeholder="Phone No *">
+                            <input type="email" name="email" id="email" class="form-input @error('email') is-invalid @enderror" placeholder="Email Address *" value="{{ old('email') }}" required>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input type="number" name="phone" id="phone" class="form-input @error('phone') is-invalid @enderror" placeholder="Phone No *" value="{{ old('phone') }}" required>
+                            @error('phone')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <textarea name="" id="" cols="30" rows="5" class="form-input" placeholder="Message *"></textarea>
+                            <textarea name="message" id="message" cols="30" rows="5" class="form-input  @error('message') is-invalid @enderror" placeholder="Message *" required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
-                    <button class="btn btn-submit btn-primary mt-2">Submit Now</button>
+                    <button type="submit" class="btn btn-submit btn-primary mt-2">Submit Now</button>
                 </form>
             </div>
         </div>
