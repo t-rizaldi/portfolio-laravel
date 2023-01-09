@@ -39,4 +39,20 @@
 .message-list.message-active p {
   font-weight: 600;
 }
+
+.trash-message-top {
+  width: 100%;
+}
+
+#trashMessageModal .message-list .form-del-message {
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .message-list .form-del-message {
+    position: absolute;
+    text-align: right;
+  }
+}
 /*# sourceMappingURL=custom.css.map */

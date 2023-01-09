@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('message')->fulltext();
             $table->boolean('read')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -49,7 +49,7 @@
                                 <td align="middle">
                                     <a href="{{ route('admin.user.edit', $user->username) }}" class="btn btn-warning btn-rounded"><i class="icon-edit1"></i></a>
 
-                                    <form action="{{ route('admin.user.destroy', $user->username) }}" method="user" class="d-inline" onsubmit="return confirm('Apakah anda yakin ingin menghapus {{ str($user->name)->lower() }} ?')">
+                                    <form action="{{ route('admin.user.destroy', $user->username) }}" method="post" class="d-inline" onsubmit="return confirm('Apakah anda yakin ingin menghapus {{ str($user->name)->lower() }} ?')">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-rounded"><i class="icon-trash"></i></button>

@@ -14,46 +14,31 @@
             <li class="dropdown">
                 <a href="#" id="notifications" data-toggle="dropdown" aria-haspopup="true">
                     <i class="icon-bell"></i>
-                    <span class="count-label">8</span>
+                    @if (countNewMessages())
+                        <span class="count-label">{{ countNewMessages() }}</span>
+                    @endif
                 </a>
                 <div class="dropdown-menu dropdown-menu-right lrg" aria-labelledby="notifications">
                     <div class="dropdown-menu-header">
-                        Notifications (40)
+                        Notifications ({{ countNewMessages() }})
                     </div>
                     <ul class="header-notifications">
+                        @foreach (getMessages() as $message)
+                            <li>
+                                <a href="{{ route('admin.message.show', $message->id) }}" class="message-list {{ (!$message->read) ? 'message-active' : ''}}">
+                                    <div class="details">
+                                        <div class="user-title">{{ $message->name }}</div>
+                                        <div class="noti-details">{{ $message->subject }}</div>
+                                        <div class="noti-date">{{ date('M j, Y', strtotime($message->created_at)) }}</div>
+                                    </div>
+                                </a>
+                            </li>
+                        @endforeach
+
                         <li>
-                            <a href="#">
-                                <div class="user-img away">
-                                    <img src="{{ asset('template/img/user21.png') }}" alt="User">
-                                </div>
+                            <a href="{{ route('admin.message.index') }}" class="message-list">
                                 <div class="details">
-                                    <div class="user-title">Abbott</div>
-                                    <div class="noti-details">Membership has been ended.</div>
-                                    <div class="noti-date">Oct 20, 07:30 pm</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="user-img busy">
-                                    <img src="{{ asset('template/img/user10.png') }}" alt="User">
-                                </div>
-                                <div class="details">
-                                    <div class="user-title">Braxten</div>
-                                    <div class="noti-details">Approved new design.</div>
-                                    <div class="noti-date">Oct 10, 12:00 am</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="user-img online">
-                                    <img src="{{ asset('template/img/user6.png') }}" alt="User">
-                                </div>
-                                <div class="details">
-                                    <div class="user-title">Larkyn</div>
-                                    <div class="noti-details">Check out every table in detail.</div>
-                                    <div class="noti-date">Oct 15, 04:00 pm</div>
+                                    <div class="user-title">Read More <i class="fas fa-arrow-right"></i></div>
                                 </div>
                             </a>
                         </li>

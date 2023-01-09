@@ -88,6 +88,14 @@ Route::middleware('auth')->group(function() {
             Route::resource('user', UserController::class)->parameters(['user' => 'user:username']);
 
             // message
+            Route::controller(MessageController::class)->group(function() {
+                Route::delete('/message/permanent-destroy', 'permanentDestroyById')->name('message.permanendestroybyid');
+                Route::get('/message/destroy-all', 'permanentDestroy')->name('message.permanentdestroy');
+                Route::put('/message/restore-message', 'restoreById')->name('message.restorebyid');
+                Route::get('/message/restore-all', 'restore')->name('message.restore');
+                Route::post('/message/search', 'search')->name('message.search');
+            });
+
             Route::resource('message', MessageController::class);
         });
     });
