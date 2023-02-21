@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'title'     => 'Rzal WebDev | Home',
+            'title'     => 'Rizaldi Web Developer',
             'posts'     => Post::with(['category'])->latest()->limit(3)->get()
         ];
 

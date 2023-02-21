@@ -81,6 +81,22 @@ body {
             }
         }
     }
+
+    #navbarNav {
+        background-color: #fff;
+    }
+
+    .banner-description {
+        font-size: 30px !important;
+    }
+
+    .banner-description-support {
+        font-size: 20px !important;
+    }
+
+    .work-line {
+        display: none;
+    }
 }
 
 .section-title {
@@ -213,12 +229,6 @@ body {
     }
     100% {
         border-radius: 60% 50% 70% 48% / 60% 57% 44% 53%;
-    }
-}
-
-@media screen and (max-width: 991px) {
-    .work-line {
-        display: none;
     }
 }
 

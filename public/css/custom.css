@@ -4,7 +4,6 @@
   margin-bottom: 1rem;
   text-align: center;
 }
-
 .post-excerpt h2 {
   font-size: 20px;
   color: #868894;
@@ -18,24 +17,20 @@
 .message-list {
   width: 100%;
   padding: 5px 0;
-  border-bottom: 1px solid #cacaca;
+  border-bottom: 1px solid rgb(202, 202, 202);
 }
-
 .message-list p {
   color: #000;
   font-size: 15px;
   font-weight: 500;
 }
-
 .message-list:hover {
-  border-top: 1px solid #cacaca;
+  border-top: 1px solid rgb(202, 202, 202);
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
-
 .message-list.message-active {
   background-color: #eaeaea;
 }
-
 .message-list.message-active p {
   font-weight: 600;
 }
@@ -54,5 +49,4 @@
     position: absolute;
     text-align: right;
   }
-}
-/*# sourceMappingURL=custom.css.map */
+}/*# sourceMappingURL=custom.css.map */
