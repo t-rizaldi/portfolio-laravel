@@ -56,7 +56,7 @@
 
         <div class="row">
             <div class="copyright text-center">
-                <p>Copyright &copy; 2022 <span>Rizal WebDev.</span> All rights reserved</p>
+                <p>Copyright &copy; 2022 <a href="http://trizaldi.com"><span>Rizal WebDev.</span></a> All rights reserved</p>
             </div>
         </div>
     </div>

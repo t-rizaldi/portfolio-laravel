@@ -11,7 +11,7 @@ class PortfolioController extends Controller
     {
         $data = [
             'title'     => 'Rizal WebDev | Portfolio',
-            'portfolios' => Portfolio::all()
+            'portfolios' => Portfolio::latest()->get()
         ];
 
         return view('portfolio.index', $data);
