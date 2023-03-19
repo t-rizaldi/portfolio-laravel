@@ -101,7 +101,7 @@ class MessageController extends Controller
 
     public function permanentDestroy()
     {
-        Message::withTrashed()->forceDelete();
+        Message::forceDelete();
         return to_route('admin.message.index')->with('toast_success', 'All Message has been permanently deleted!');
     }
 

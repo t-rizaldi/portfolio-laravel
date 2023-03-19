@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-transparent fixed-top">
+<nav class="navbar navbar-expand-lg bg-transparent fixed-top" data-aos="fade-down" data-aos-duration="2000">
   <div class="container">
     <a class="navbar-brand" href="{{ route('home') }}">
       <img src="{{ asset('img/logo.png') }}" alt="Web Logo" width="100" class="d-inline-block align-text-top">

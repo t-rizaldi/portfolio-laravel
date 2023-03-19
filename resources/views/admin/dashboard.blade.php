@@ -50,6 +50,18 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="info-stats4">
+								<div class="info-icon">
+									<i class="icon-mail"></i>
+								</div>
+								<div class="sale-num">
+									<h3>{{ $messages }}</h3>
+									<p>New Message</p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<!-- Row end -->
 

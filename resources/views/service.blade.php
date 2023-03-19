@@ -4,7 +4,7 @@
 {{-- Hero Section --}}
     <section class="hero-service">
         <div class="container">
-            <div class="breadcrumb-content text-uppercase">
+            <div class="breadcrumb-content text-uppercase" data-aos="fade-right" data-aos-duration="2000">
                 <h1>Our Services</h1>
                 <ul>
                     <li>
@@ -20,13 +20,13 @@
 {{-- Service content Section --}}
     <section class="service-content">
         <div class="container">
-            <div class="section-title text-center">
+            <div class="section-title text-center" data-aos="fade-down" data-aos-duration="2000">
                 <h2>Website</h2>
             </div>
-            <div class="service-content-detail text-center">
+            <div class="service-content-detail text-center" data-aos="fade-right" data-aos-duration="2000">
                 <p>Today, your website became one of the main way for you to communicate with your potential customers. Whether you need a corporate website, or whether you are selling your products directly online, we will build an adapted and scalable solution to fit your vision and ambitions.</p>
 
-                <a href="{{ route('contact') }}" class="btn btn-primary btn-contact mx-auto mt-3">Contact Us</a>
+                <a href="{{ route('contact') }}" class="btn btn-primary btn-contact mx-auto mt-3" data-aos="fade-left" data-aos-duration="2000">Contact Us</a>
             </div>
         </div>
     </section>
@@ -37,12 +37,12 @@
         <div class="container">
             {{-- Company Service --}}
             <div class="row company-service align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                     <div class="service-image">
                         <img src="{{ asset('img/service-company.png') }}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="service-icon">
                         <img src="{{ asset('img/service-company-icon.png') }}" alt="">
                     </div>
@@ -67,7 +67,7 @@
             </div>
             {{-- Personal Service --}}
             <div class="row personal-service align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                     <div class="service-icon">
                         <img src="{{ asset('img/service-personal-icon.png') }}" alt="">
                     </div>
@@ -89,7 +89,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="service-image">
                         <img src="{{ asset('img/service-personal.png') }}" alt="" class="img-fluid">
                     </div>
@@ -97,12 +97,12 @@
             </div>
             {{-- Aoolication Service --}}
             <div class="row app-service align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                     <div class="service-image">
                         <img src="{{ asset('img/service-web-app.png') }}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="service-icon">
                         <img src="{{ asset('img/service-webapp-icon.png') }}" alt="">
                     </div>
@@ -133,10 +133,10 @@
 <section class="service-contact">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1500">
                 <img src="{{ asset('img/service-contact.png') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-6 mt-lg-0 mt-5">
+            <div class="col-lg-6 mt-lg-0 mt-5" data-aos="fade-left" data-aos-duration="1500">
                 <div class="section-title">
                     <h2>Get In Touch With Us</h2>
                 </div>
@@ -146,7 +146,7 @@
 
                 <form action="{{ route('contact.message.project') }}" method="post">
                     @csrf
-                    <div class="row">
+                    <div class="row" data-aos="fade-up" data-aos-duration="1500">
                         <div class="col-lg-6">
                             <input type="text" name="name" id="name" class="form-input @error('name') is-invalid @enderror" placeholder="Full Name *" value="{{ old('name') }}" required>
                             @error('name')

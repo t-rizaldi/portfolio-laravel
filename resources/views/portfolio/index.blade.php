@@ -4,7 +4,7 @@
 {{-- Hero Section --}}
     <section class="hero-portfolio">
         <div class="container">
-            <div class="breadcrumb-content text-uppercase">
+            <div class="breadcrumb-content text-uppercase" data-aos="fade-right" data-aos-duration="2000">
                 <h1>PORTFOLIO</h1>
                 <ul>
                     <li>
@@ -20,11 +20,11 @@
 {{-- Portfolio Section --}}
 <section class="portfolio">
     <div class="container">
-        <div class="section-title text-center">
+        <div class="section-title text-center" data-aos="fade-up" data-aos-duration="1500">
             <h2>Our Successful Projects</h2>
         </div>
 
-        <div class="row justify-content-center portfolio-list">
+        <div class="row justify-content-center portfolio-list" data-aos="fade-up" data-aos-duration="1500">
             @foreach ($portfolios as $portfolio)
             <div class="col-lg-3 col-md-4">
                 <a href="{{ route('portfolio.detail', $portfolio->slug) }}" class="text-decoration-none">
@@ -49,10 +49,10 @@
 <section class="service-contact">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                 <img src="{{ asset('img/service-contact.png') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-6 mt-lg-0 mt-5">
+            <div class="col-lg-6 mt-lg-0 mt-5" data-aos="fade-left" data-aos-duration="1500">
                 <div class="section-title">
                     <h2>Get In Touch With Us</h2>
                 </div>
@@ -62,7 +62,7 @@
 
                 <form action="{{ route('contact.message.project') }}" method="post">
                     @csrf
-                    <div class="row">
+                    <div class="row" data-aos="fade-up" data-aos-duration="1500">
                         <div class="col-lg-6">
                             <input type="text" name="name" id="name" class="form-input @error('name') is-invalid @enderror" placeholder="Full Name *" value="{{ old('name') }}" required>
                             @error('name')

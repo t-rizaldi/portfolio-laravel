@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use App\Models\Portfolio;
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -32,6 +33,7 @@ class DashboardController extends Controller
             'portfolios'    => Portfolio::count(),
             'users'         => User::count(),
             'posts'         => Post::count(),
+            'messages'      => Message::where('read', 0)->count(),
             'postCategories'=> $postCategoriesName,
             'postTotalByCtg'=> $totalPostByCtg
 

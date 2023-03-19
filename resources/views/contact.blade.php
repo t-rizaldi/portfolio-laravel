@@ -4,7 +4,7 @@
 {{-- Hero Section --}}
     <section class="hero-service">
         <div class="container">
-            <div class="breadcrumb-content text-uppercase">
+            <div class="breadcrumb-content text-uppercase" data-aos="fade-right" data-aos-duration="2000">
                 <h1>Contact Us</h1>
                 <ul>
                     <li>
@@ -21,7 +21,7 @@
     <section class="contact-media">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-right" data-aos-duration="1500">
                     <a href="https://wa.me/6285271161621" class="text-decoration-none">
                         <div class="contact-item">
                             <div class="icon-item fs-1 text-primary">
@@ -34,7 +34,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1500">
                     <a href="mailto:t.rizaldifadli2001@gmail.com" class="text-decoration-none">
                         <div class="contact-item">
                             <div class="icon-item fs-1 text-primary">
@@ -56,10 +56,10 @@
 <section class="service-contact">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                 <img src="{{ asset('img/service-contact.png') }}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-6 mt-lg-0 mt-5">
+            <div class="col-lg-6 mt-lg-0 mt-5" data-aos="fade-left" data-aos-duration="1500">
                 <div class="section-title">
                     <h2>Get In Touch With Us</h2>
                 </div>
@@ -69,7 +69,7 @@
 
                 <form action="{{ route('contact.message') }}" method="post">
                     @csrf
-                    <div class="row">
+                    <div class="row" data-aos="fade-up" data-aos-duration="1500">
                         <div class="col-lg-6">
                             <input type="text" name="name" id="name" class="form-input" placeholder="Full Name *" value="{{ old('name') }}">
                             <input type="text" name="subject" id="subject" class="form-input" placeholder="Subject *" value="{{ old('subject') }}">

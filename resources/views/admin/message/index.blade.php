@@ -85,9 +85,9 @@
                         <a href="{{ route('admin.message.restore') }}" class="btn btn-success" onclick="return confirm('Apakah anda yakin ingin memulihkan semua pesan?')">
                             <i class="fas fa-trash-restore-alt"></i> Pulihkan Semua Sampah
                         </a>
-                        <a href="{{ route('admin.message.permanentdestroy') }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus permanen semua pesan?')">
+                        {{-- <a href="{{ route('admin.message.permanentdestroy') }}" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus permanen semua pesan?')">
                             <i class="fas fa-trash"></i> Hapus Semua Permanen
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
 

@@ -1,7 +1,7 @@
 <footer class="bg-primary">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" data-aos="fade-right" data-aos-duration="1500">
                 <div class="footer-logo">
                     <img src="{{ asset('img/logo.png') }}" alt="Web Logo">
                 </div>
@@ -10,7 +10,7 @@
                     <p>Independent Web Developer in Aceh, Indonesian. Receive services for creating company profile websites, personal websites, and other websites.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-duration="1500">
                 <div class="footer-title">
                     <h3>Links</h3>
                 </div>
@@ -31,7 +31,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4" data-aos="fade-left" data-aos-duration="1500">
                 <div class="footer-title">
                     <h3>Contact Us</h3>
                 </div>
@@ -44,7 +44,7 @@
                             <a href="https://instagram.com/t_rizaldi" class="footer-item-link"><span><i class="fab fa-instagram"></i></span>&emsp;t_rizaldi</a>
                         </li>
                         <li class="mt-3">
-                            <a href="mailto:t.rizaldifadli2001@gmail.com" class="footer-item-link"><span><i class="fas fa-envelope"></i></span>&emsp;t.rizaldifadli2001@gmail.com</a>
+                            <a href="mailto:admin@trizaldi.com" class="footer-item-link"><span><i class="fas fa-envelope"></i></span>&emsp;admin@trizaldi.com</a>
                         </li>
                         <li class="mt-3">
                             <a href="{{ route('contact') }}" class="footer-item-link"><span><i class="fas fa-map-marker-alt"></i></span>&emsp;Jalan Kebun Baru, Dusun Pahlawan, Desa Paya Bujok Seulemak, Kecamatan Langsa Baro, Kota Langsa, Aceh 24415 Indonesia</a>
@@ -56,7 +56,7 @@
 
         <div class="row">
             <div class="copyright text-center">
-                <p>Copyright &copy; 2022 <a href="http://trizaldi.com"><span>Rizal WebDev.</span></a> All rights reserved</p>
+                <p>Copyright &copy; 2022 <a href="https://trizaldi.com"><span>Rizal WebDev.</span></a> All rights reserved</p>
             </div>
         </div>
     </div>

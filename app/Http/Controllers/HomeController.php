@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function education()
     {
-        return redirect('/document/cv.pdf');
+        return redirect('/document/rizaldi.pdf');
     }
 
     public function contact()
@@ -42,7 +42,7 @@ class HomeController extends Controller
             'name'      => 'required',
             'email'     => 'required|email',
             'phone'     => 'required|numeric',
-            'subject'   => 'required|min:10',
+            'subject'   => 'required|min:5',
             'found'   => 'required',
             'message'   => 'required|min:15'
         ], $message);

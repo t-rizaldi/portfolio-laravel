@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Jasa pembuatan website profesional terbaik dan mudah untuk wujudkan website impian Anda. Buat Website dengan harga terjangkau. Pesan website sekarang!">
-    <meta name="keywords" content="Membuat Website, Membuat Website Gratis, Buat Website, Buat Website Gratis, Membuat Website Sendiri, pembuatan website, bikin website, buat web, bikin web, Manfaat Website, jasa pembuatan website, pembuatan web, jasa buat web, jasa desain web, desain web murah, web desain">
+    <meta name="keywords" content="Membuat Website, Membuat Website Gratis, Buat Website, Buat Website Gratis, Membuat Website Sendiri, pembuatan website, bikin website, buat web, bikin web, Manfaat Website, jasa pembuatan website, pembuatan web, jasa buat web, jasa desain web, desain web murah, web desain, Rizaldi, Fadli, Teuku, Teuku Rizaldi Fadli, Teuku Rizaldi, Rizaldi Fadli">
     <title>{{ $title }}</title>
 
     <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" type="image/x-icon">
@@ -45,6 +45,8 @@
 
     {{-- Custom Script --}}
     <script src="{{ asset('js/script.js') }}"></script>
+
+    @yield('script')
     
     <script>
         AOS.init({

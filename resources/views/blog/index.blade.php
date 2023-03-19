@@ -3,7 +3,7 @@
 @section('content')
 {{-- Hero Section --}}
     <section class="hero-service">
-        <div class="container">
+        <div class="container" data-aos="fade-right" data-aos-duration="2000">
             <div class="breadcrumb-content text-uppercase">
                 @if (!$search)
                     <h1>Blog</h1>

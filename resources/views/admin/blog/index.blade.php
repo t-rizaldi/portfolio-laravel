@@ -45,7 +45,7 @@
                                     <form action="{{ route('admin.post.destroy', $post->slug) }}" method="post" class="d-inline" onsubmit="return confirm('Apakah anda yakin ingin menghapus artikel {{ str($post->title)->lower() }} ini ?')">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-rounded"><i class="icon-edit1"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-rounded"><i class="icon-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

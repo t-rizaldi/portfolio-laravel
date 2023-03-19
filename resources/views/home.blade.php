@@ -7,10 +7,10 @@
     <section class="banner">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="2000">
                     <h1 class="banner-description text-uppercase">
                         Hi, I'm <span class="text-primary">Rizaldi</span><br>
-                        I'm a <span class="text-warning">Junior Web Developer</span> with a strong focus on problem solving and innovation.
+                        I'm <span class="text-warning">Junior Web Developer</span> with a strong focus on problem solving and innovation.
                     </h1>
     
                     <p class="banner-description-support text-lg-start text-center">
@@ -22,7 +22,7 @@
                         <p>*Build your project with us today!</p>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center">
+                <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="2000">
                     <img src="{{ asset('img/homeImage.png') }}" alt="Banner Image" class="img-fluid mt-lg-0 mt-5">
                 </div>
             </div>
@@ -35,12 +35,12 @@
     {{-- Section Work Process --}}
     <section class="work bg-primary">
         <div class="container">
-            <div class="section-title text-center">
+            <div class="section-title text-center" data-aos="fade-down" data-aos-duration="1500">
                 <h2>Work Process</h2>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-4 text-center" data-aos="fade-right" data-aos-duration="1500">
                     <div class="work-process">
                         <div class="work-item">
                             <img src="{{ asset('img/work-plan.png') }}" alt="" class="img-fluid">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-4 text-center" data-aos="fade-up" data-aos-duration="1500">
                     <div class="work-process">
                         <div class="work-item">
                             <img src="{{ asset('img/work-development.jpg') }}" alt="" class="img-fluid">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-4 text-center" data-aos="fade-left" data-aos-duration="1500">
                     <div class="work-process">
                         <div class="work-item">
                             <img src="{{ asset('img/work-launch.png') }}" alt="" class="img-fluid">
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div class="work-line">
+        <div class="work-line" data-aos="fade-down">
             <img src="{{ asset('img/work-line.png') }}" alt="Image" class="img-fluid">
         </div>
 
@@ -88,7 +88,7 @@
     <section class="mission">
         <div class="container">
             <div class="row flex-row-reverse align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="section-title">
                         <h2>Our Mission</h2>
                         <p class="mission-description">
@@ -96,9 +96,9 @@
                         </p>
                     </div>
 
-                    <a href="{{ route('services') }}" class="btn btn-contact btn-primary mt-5">Our Service&emsp;<i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('services') }}" class="btn btn-contact btn-primary mt-5" data-aos="fade-up" data-aos-duration="1500">Our Service&emsp;<i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1500">
                     <img src="{{ asset('img/mission-img.png') }}" alt="" class="img-fluid mt-lg-0 mt-5">
                 </div>
             </div>
@@ -109,13 +109,13 @@
     {{-- Section Blog --}}
     <section class="blog">
         <div class="container">
-            <div class="row">
+            <div class="row" data-aos="fade-up" data-aos-duration="1500">
                 <div class="section-title text-center">
                     <h2>Our Blogs</h2>
                 </div>
             </div>
 
-            <div class="row justify-content-center mt-3">
+            <div class="row justify-content-center mt-3" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($posts as $post)
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-item mt-3">
