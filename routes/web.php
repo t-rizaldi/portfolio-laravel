@@ -24,14 +24,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth Routes
-Route::controller(AuthController::class)->group(function() {
-    Route::get('/login', 'login')->name('login')->middleware('guest');
-    Route::post('/login', 'authenticate')->name('login.process');
-    Route::get('/logout', 'logout')->name('auth.logout');
-});
+// LANDING PAGE
 
-
+// V1
 Route::controller(HomeController::class)->group(function() {
     Route::get('/', 'index')->name('home');
     Route::get('/experience-education', 'education')->name('education');
@@ -55,6 +50,31 @@ Route::controller(PostController::class)->group(function() {
     Route::get('/blog/detail/{post:slug}', 'detail')->name('blog.detail');
 });
 
+
+// V2
+Route::prefix('v2')->group(function() {
+    Route::name('v2')->group(function() {
+        Route::controller(HomeController::class)->group(function() {
+            Route::get('/', 'index_v2')->name('.index');
+            Route::get('/services', 'service_v2')->name('.service');
+            Route::get('/portfolio', 'portfolio_v2')->name('.portfolio');
+            Route::get('/portfolio/detail/{portfolio:slug}', 'portfolioDetail_v2')->name('.portfolio.detail');
+            Route::get('/blog', 'blog_v2')->name('.blog');
+            Route::get('/blog/detail/{post:slug}', 'blogDetail_v2')->name('.blog.detail');
+            Route::get('/contact', 'contact_v2')->name('.contact');
+        });
+    });
+});
+
+
+
+// ADMINISTRATOR
+// Auth Routes
+Route::controller(AuthController::class)->group(function() {
+    Route::get('/login', 'login')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate')->name('login.process');
+    Route::get('/logout', 'logout')->name('auth.logout');
+});
 
 Route::middleware('auth')->group(function() {
 
