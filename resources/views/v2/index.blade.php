@@ -406,7 +406,7 @@
                         <div class="col-lg-6">
                             <div class="floating-card p-4 h-100">
                                 <div class="project-image mb-4">
-                                    <img src="{{ $project->gambar ? asset('storage/img_portfolio/' . $project->gambar) : asset('storage/img_portfolio/default.jpg') }}"
+                                    <img src="{{ $project->gambar ? asset('storage/' . $project->gambar) : asset('storage/img_portfolio/default.jpg') }}"
                                         alt="{{ $project->title }}" class="img-fluid rounded">
                                 </div>
                                 <div class="project-content">
@@ -450,7 +450,7 @@
                         <div class="col-lg-4">
                             <article class="blog-card h-100">
                                 <div class="blog-image">
-                                    <img src="{{ $post->image ? asset('storage/img_post/' . $post->image) : asset('storage/img_post/default.jpg') }}"
+                                    <img src="{{ $post->image ? asset('storage/' . $post->image) : asset('storage/img_post/default.jpg') }}"
                                         alt="{{ $post->title }}" class="img-fluid w-100">
                                 </div>
                                 <div class="p-4">

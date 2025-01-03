@@ -34,7 +34,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="portfolio-card h-100">
                             <div class="portfolio-image">
-                                <img src="{{ $portfolio->gambar ? asset('storage/img_portfolio/' . $portfolio->gambar) : asset('storage/img_portfolio/default.jpg') }}"
+                                <img src="{{ $portfolio->gambar ? asset('storage/' . $portfolio->gambar) : asset('storage/img_portfolio/default.jpg') }}"
                                     alt="{{ $portfolio->title }}">
                             </div>
                             <div class="p-4">

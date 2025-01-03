@@ -33,7 +33,7 @@
                 <div class="col-lg-8">
                     <div class="project-card p-4 mb-4">
                         <div class="project-image">
-                            <img src="{{ $portfolio->gambar ? asset('storage/img_portfolio/' . $portfolio->gambar) : asset('storage/img_portfolio/default.jpg') }}"
+                            <img src="{{ $portfolio->gambar ? asset('storage/' . $portfolio->gambar) : asset('storage/img_portfolio/default.jpg') }}"
                                 alt="{{ $portfolio->title }}">
                         </div>
                         <h2 class="h4 mb-4">Project Description</h2>
