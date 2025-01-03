@@ -110,7 +110,7 @@ class UserController extends Controller
             'username'      => 'required',
             'email'         => 'required',
             'name'          => 'required',
-            'gambar'        => 'image|file|max:2048'
+            'gambar'        => 'image|file|max:5120'
         ];
 
         //cek apakah email diganti

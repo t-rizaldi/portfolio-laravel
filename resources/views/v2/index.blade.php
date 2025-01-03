@@ -388,87 +388,91 @@
     </section>
 
     <!-- Portfolio Projects Section -->
-    <section class="portfolio py-6 position-relative">
-        <div class="blob-shape"
-            style="background: rgba(59, 130, 246, 0.1); width: 600px; height: 600px; bottom: -300px; left: -300px;">
-        </div>
-
-        <div class="container mt-5">
-            <div class="text-center mb-5">
-                <h2 class="gradient-text mb-4">Featured Projects</h2>
-                <p class="lead text-secondary">Some of my recent works that showcase my development expertise</p>
+    @if (count($projects) > 0)
+        <section class="portfolio py-6 position-relative">
+            <div class="blob-shape"
+                style="background: rgba(59, 130, 246, 0.1); width: 600px; height: 600px; bottom: -300px; left: -300px;">
             </div>
 
-            <div class="row g-4">
+            <div class="container mt-5">
+                <div class="text-center mb-5">
+                    <h2 class="gradient-text mb-4">Featured Projects</h2>
+                    <p class="lead text-secondary">Some of my recent works that showcase my development expertise</p>
+                </div>
 
-                @foreach ($projects as $project)
-                    <div class="col-lg-6">
-                        <div class="floating-card p-4 h-100">
-                            <div class="project-image mb-4">
-                                <img src="{{ $project->gambar ? asset('storage/img_portfolio/' . $project->gambar) : asset('storage/img_portfolio/default.jpg') }}"
-                                    alt="{{ $project->title }}" class="img-fluid rounded">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="h4 mb-3">{{ $project->title }}</h3>
-                                <p class="text-secondary mb-3 text-truncate">{{ $project->description }}</p>
-                                <div class="tech-stack mb-4">
-                                    <span class="tech-item">PHP</span>
-                                    <span class="tech-item">Javascript</span>
-                                    <span class="tech-item">Laravel</span>
-                                    <span class="tech-item">MySql</span>
+                <div class="row g-4">
+
+                    @foreach ($projects as $project)
+                        <div class="col-lg-6">
+                            <div class="floating-card p-4 h-100">
+                                <div class="project-image mb-4">
+                                    <img src="{{ $project->gambar ? asset('storage/img_portfolio/' . $project->gambar) : asset('storage/img_portfolio/default.jpg') }}"
+                                        alt="{{ $project->title }}" class="img-fluid rounded">
                                 </div>
-                                <div class="d-flex gap-3">
-                                    <a href="{{ route('v2.portfolio.detail', [$project->slug]) }}"
-                                        class="cta-button md">View Project</a>
-                                    {{-- <a href="#" class="cta-button outline md">Source Code</a> --}}
+                                <div class="project-content">
+                                    <h3 class="h4 mb-3">{{ $project->title }}</h3>
+                                    <p class="text-secondary mb-3 text-truncate">{{ $project->description }}</p>
+                                    <div class="tech-stack mb-4">
+                                        <span class="tech-item">PHP</span>
+                                        <span class="tech-item">Javascript</span>
+                                        <span class="tech-item">Laravel</span>
+                                        <span class="tech-item">MySql</span>
+                                    </div>
+                                    <div class="d-flex gap-3">
+                                        <a href="{{ route('v2.portfolio.detail', [$project->slug]) }}"
+                                            class="cta-button md">View Project</a>
+                                        {{-- <a href="#" class="cta-button outline md">Source Code</a> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <!-- Blog Section -->
-    <section class="py-6 position-relative" id="blog">
-        <div class="blob-shape"
-            style="background: rgba(59, 130, 246, 0.1); width: 500px; height: 500px; bottom: -200px; left: -200px;">
-        </div>
-
-        <div class="container mt-5">
-            <div class="text-center mb-5">
-                <h2 class="gradient-text mb-4">Latest Insights</h2>
-                <p class="lead text-secondary">Discover our latest thoughts and technical insights</p>
+    @if (count($posts) > 0)
+        <section class="py-6 position-relative" id="blog">
+            <div class="blob-shape"
+                style="background: rgba(59, 130, 246, 0.1); width: 500px; height: 500px; bottom: -200px; left: -200px;">
             </div>
 
-            <div class="row g-4">
-                @foreach ($posts as $post)
-                    <div class="col-lg-4">
-                        <article class="blog-card h-100">
-                            <div class="blog-image">
-                                <img src="{{ $post->image ? asset('storage/img_post/' . $post->image) : asset('storage/img_post/default.jpg') }}"
-                                    alt="{{ $post->title }}" class="img-fluid w-100">
-                            </div>
-                            <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <span class="text-primary"><i
-                                            class="fas fa-calendar-alt me-2"></i>{{ date('d M Y', strtotime($post->created_at)) }}</span>
-                                    <span class="text-secondary"><i
-                                            class="fas fa-user me-2"></i>{{ $post->user->name }}</span>
+            <div class="container mt-5">
+                <div class="text-center mb-5">
+                    <h2 class="gradient-text mb-4">Latest Insights</h2>
+                    <p class="lead text-secondary">Discover our latest thoughts and technical insights</p>
+                </div>
+
+                <div class="row g-4">
+                    @foreach ($posts as $post)
+                        <div class="col-lg-4">
+                            <article class="blog-card h-100">
+                                <div class="blog-image">
+                                    <img src="{{ $post->image ? asset('storage/img_post/' . $post->image) : asset('storage/img_post/default.jpg') }}"
+                                        alt="{{ $post->title }}" class="img-fluid w-100">
                                 </div>
-                                <h3 class="h5 mb-3">{{ $post->title }}</h3>
-                                <p class="text-secondary text-truncate">{{ $post->excerpt }}</p>
-                                <a href="{{ route('v2.blog.detail', [$post->slug]) }}"
-                                    class="btn btn-link text-primary p-0">Read More <i
-                                        class="fas fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
+                                <div class="p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span class="text-primary"><i
+                                                class="fas fa-calendar-alt me-2"></i>{{ date('d M Y', strtotime($post->created_at)) }}</span>
+                                        <span class="text-secondary"><i
+                                                class="fas fa-user me-2"></i>{{ $post->user->name }}</span>
+                                    </div>
+                                    <h3 class="h5 mb-3">{{ $post->title }}</h3>
+                                    <p class="text-secondary text-truncate">{{ $post->excerpt }}</p>
+                                    <a href="{{ route('v2.blog.detail', [$post->slug]) }}"
+                                        class="btn btn-link text-primary p-0">Read More <i
+                                            class="fas fa-arrow-right ms-2"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
 
-                <!-- Add more blog cards here -->
+                    <!-- Add more blog cards here -->
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 @endsection

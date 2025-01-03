@@ -74,14 +74,14 @@
                                 <i class="fas fa-globe"></i>
                                 <div>
                                     <span class="info-label">Website</span>
-                                    <span>{{ $portfolio->website ?? '-' }}</span>
+                                    <span><a href="{{ $portfolio->website }}">{{ $portfolio->website ?? '-' }}</a></span>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-calendar"></i>
                                 <div>
                                     <span class="info-label">Project Date</span>
-                                    <span>{{ date('M Y', strtotime({{ $portfolio->project_date }})) }}2022</span>
+                                    <span>{{ date('M Y', strtotime($portfolio->project_date)) }}</span>
                                 </div>
                             </li>
                             <li>
